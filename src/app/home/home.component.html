@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11">
+            <h1>Songs List</h1>
+        </div>
+        <div class="col-lg-1">
+            <h1 data-toggle="modal" data-target="#CreateSong">+</h1>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <tr>
+            <th>Title</th>
+            <th>Release Date</th>
+        </tr>
+        <tr *ngFor="let m of music" data-toggle="modal" data-target="#ModifySong" (click)="getMusic(m.TitleID)">
+            <td>{{m.Title}}</td>
+            <td>{{m.ReleaseDate}}</td>
+        </tr>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="ModifySong" tabindex="-1" role="dialog" aria-labelledby="Update" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modify Song</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body" *ngIf="currentMusic">
+                        <div class="form-group">
+                            <label for="Title">Title</label>
+                            <input type="text" class="form-control" id="Title" [(ngModel)]="currentMusic.Title"
+                                name="Title" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Genre">Genre</label>
+                            <input type="text" class="form-control" id="Genre" [(ngModel)]="currentMusic.Genre"
+                                name="Genre" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Artist">Artist</label>
+                            <input type="text" class="form-control" id="Artist" [(ngModel)]="currentMusic.Artist"
+                                name="Artist" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ReleaseDate">Release Date</label>
+                            <input type="date" class="form-control" id="ReleaseDate"
+                                [(ngModel)]="currentMusic.ReleaseDate" name="Date" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger pull-left" (click)="deleteMusic()"
+                            data-dismiss="modal">Delete Song</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="updatePublished()"
+                            data-dismiss="modal">Update changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="CreateSong" tabindex="-1" role="dialog" aria-labelledby="create" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Create A Song</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="submit-form">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" id="Title" required [(ngModel)]="dmusic.Title"
+                                    name="title" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Genre">Genre</label>
+                                <input type="text" class="form-control" id="Genre" required [(ngModel)]="dmusic.Genre"
+                                    name="Genre" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Artist">Artist</label>
+                                <input type="text" class="form-control" id="Artist" required [(ngModel)]="dmusic.Artist"
+                                    name="Artist" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Date">Release Date</label>
+                                <input type="date" class="form-control" id="ReleaseDate" required
+                                    [(ngModel)]="dmusic.ReleaseDate" name="ReleaseDate" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button (click)="saveTutorial()" class="btn btn-success" data-dismiss="modal">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

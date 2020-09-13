@@ -1,0 +1,30 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awscrud-dev-185747-authRole",
+      "UnauthRoleArn": "arn:aws:iam::489791930594:role/amplify-awscrud-dev-185747-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::489791930594:role/amplify-awscrud-dev-185747-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-awscrud-dev-185747-deployment",
+      "UnauthRoleName": "amplify-awscrud-dev-185747-unauthRole",
+      "StackName": "amplify-awscrud-dev-185747",
+      "StackId": "arn:aws:cloudformation:ap-south-1:489791930594:stack/amplify-awscrud-dev-185747/c13ab440-f4fb-11ea-b7ae-02153b7bf71a",
+      "AmplifyAppId": "d3dt0388moug9z"
+    },
+    "categories": {
+      "function": {
+        "AWSCrudCustomMessage": {
+          "REDIRECTURL": "",
+          "EMAILSUBJECT": "",
+          "EMAILMESSAGE": ""
+        },
+        "AWSCrudPostConfirmation": {
+          "GROUP": "CrudUsers"
+        }
+      },
+      "auth": {
+        "AWSCrud": {}
+      }
+    }
+  }
+}
